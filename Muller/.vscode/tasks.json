@@ -3,7 +3,7 @@
         {
             "type": "cppbuild",
             "label": "C/C++: cpp.exe build active file",
-            "command": "C:\\TDM-GCC-64\\bin\\cpp.exe",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
