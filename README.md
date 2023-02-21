@@ -19,6 +19,6 @@ NOTES:
 
 2- The programs that are in the C++ lenguage, have been developed in Visual Studio code.
 2.1- The compiler for that is Mingw64. Make sure that you have that compiler in the default route, so you can compile the program.
-     Or you can just use the main.exe file so you don't need to compile the program yourself.
+Or you can just use the main.exe file so you don't need to compile the program yourself.
 
 Make sure to read the notes (if exists such file) in each program folder.
