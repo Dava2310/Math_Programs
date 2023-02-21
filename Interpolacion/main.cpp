@@ -10,7 +10,6 @@ void interpolacionCuadratica();
 void interpolacionPolinomial(int);
 double evaluacionFuncion(double x);
 double diferenciaCuadrados(double[], int);
-
 int main(int argc, char** argv) {
 	
 	int grado_Interpolacion = 0;
@@ -186,6 +185,7 @@ void interpolacionPolinomial(int grado) {
 	double xMin = 0.0, xMax = 0.0;
 	int n = grado + 1;
 	double resultado = 0.0;
+	double valorVerdadero = 0.0;
 	
 	// Llenado del arreglo
 	for (int i = 0; i < n; i++) {
@@ -322,31 +322,47 @@ void interpolacionPolinomial(int grado) {
 	}
 	
 	double resultadoTemp = 0.0;
+	double valorAMultiplicar = 0.0;
 	for (int i = 0; i < n; i++) {
 		
+		cout << "I = " << i << endl; 
+
 		if (i != 0) {
 			
 			resultadoTemp = 1;
 			resultadoTemp *= b[i];
-			
-			for (int j = i; j >= 0; j--) {
+
+			// cout << "Resultado Temp 1 (solo el valor de la b) = " << resultadoTemp << endl;
+
+			for (int j = i; j > 0; j--) {
 				
-				resultadoTemp *= (x - array_puntos[j - 1]);
-				
+				valorAMultiplicar = (x - array_puntos[j - 1]);
+				// cout << "Valor A Multiplicar: " << valorAMultiplicar << endl;
+				resultadoTemp *= valorAMultiplicar;
+				// cout << "El resultado temp 1 multiplicado por eso: " << resultadoTemp << endl;
 			}
 			
+			// cout << "Resultado Temp 2 Resumen (multiplicado con las X) = " << resultadoTemp << endl;
+
 			resultado += resultadoTemp;
-			
+			// cout << "Agregando eso al resultado: " << resultado << endl;
 			
 		} else {
 			
-			resultado += array_puntos[i];
+			resultado += b[i];
 			
 		}
+
+		// cout << "Resultado actual: " << resultado << endl;
+		
 	}
 	
 	cout << "================== IMPRESION DE RESULTADO ===============" << endl << endl;
 	cout << "F3(" << x << ") = " << resultado << endl;
+
+	cout << "\n================== CALCULO DEL ERROR ===============" << endl << endl; 
+	cout << "Ingrese el valor verdadero: "; cin >> valorVerdadero;
+	cout << "Valor del Error: " << (abs(valorVerdadero - resultado) * 100) << "%" << endl << endl;
 }
 
 double diferenciaCuadrados(double x[], int n) {

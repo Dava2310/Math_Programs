@@ -46,7 +46,7 @@ int main() {
 	
 	vector<double> resultados = baistrow(polinomio, r, s, Es, n);
 	
-	
+	system("pause");
 	return 0;
 }
 
